@@ -5,18 +5,15 @@ import classes from "./PostsList.module.css";
 import Modal from "./Modal";
 
 
-function PostsList() {
+function PostsList({isPosting, onStopPosting}) {
 
     const [bodyText, setBodyText] = useState('');
     const [author, setAuthor] = useState('');
-    const [isModalOpen, setIsModalOpen] = useState(true);
 
     return (
         <>
-            { isModalOpen && 
-                <Modal onCloseWindow={() => {
-                    setIsModalOpen(false);
-                }}>
+            { isPosting && 
+                <Modal onCloseWindow={onStopPosting}>
                     <NewPost onBodyChange={(event) => {
                         setBodyText(event.target.value);
                     }} onAuthorChange={(event) => {
