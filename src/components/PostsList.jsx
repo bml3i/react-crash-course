@@ -18,7 +18,7 @@ function PostsList({isPosting, onStopPosting}) {
                         setBodyText(event.target.value);
                     }} onAuthorChange={(event) => {
                         setAuthor(event.target.value);
-                    }} />
+                    }} onCancel={onStopPosting} />
                 </Modal>
             }
 
